@@ -10,3 +10,9 @@ use language-c package to collect types and global variables
 
 asm:
   .comm name, size, alignment
+
+READ: C struct alignment and padding
+  https://en.wikipedia.org/wiki/Data_structure_alignment
+  https://www.geeksforgeeks.org/structure-member-alignment-padding-and-data-packing/
+  https://grandidierite.github.io/structure-alignment-and-packing-in-C-programming/
+  https://levelup.gitconnected.com/how-struct-memory-alignment-works-in-c-3ee897697236
