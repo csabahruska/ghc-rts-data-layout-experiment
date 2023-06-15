@@ -1,0 +1,16 @@
+cabal-version:       >=1.10
+
+name:                ghc-rts-data-layout-experiment
+version:             0.1.0.0
+license-file:        LICENSE
+author:              Csaba Hruska
+maintainer:          csaba.hruska@gmail.com
+build-type:          Simple
+
+executable globvars
+  main-is:             Main.hs
+  -- other-modules:
+  -- other-extensions:
+  build-depends:       base, language-c, pretty-simple, containers, filepath, mtl
+  -- hs-source-dirs:
+  default-language:    Haskell2010

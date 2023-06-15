@@ -1,0 +1,12 @@
+wpc plugin
+  save the preprocessed C files:
+    gcc -E
+    or
+    gcc -save-temps
+  -save-temps works with clang and gcc also ; PREFERRED!
+
+use language-c package to collect types and global variables
+
+
+asm:
+  .comm name, size, alignment

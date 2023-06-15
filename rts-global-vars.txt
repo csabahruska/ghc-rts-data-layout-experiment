@@ -1,0 +1,615 @@
+( "Proftimer.c.thr_debug_o_i"
+,
+    [ "performHeapProfile | static/external | _Bool"
+    , "do_heap_prof_ticks | static/internal | _Bool"
+    , "heap_prof_timer_active | static/internal | _Bool"
+    , "ticks_to_heap_profile | static/internal | int"
+    , "ticks_to_ticky_sample | static/internal | int"
+    , "performTickySample | static/external | _Bool"
+    , "total_ticks | static/external | uint32_t"
+    ]
+)
+( "StaticPtrTable.c.thr_debug_o_i"
+,
+    [ "spt | static/internal | HashTable *"
+    , "spt_lock | static/internal | Mutex"
+    ]
+)
+( "Hash.c.thr_debug_o_i"
+,
+    [ "g_one | static/internal | const int"
+    , "PRIME32_1 | static/internal | U32 const"
+    , "PRIME32_2 | static/internal | U32 const"
+    , "PRIME32_3 | static/internal | U32 const"
+    , "PRIME32_4 | static/internal | U32 const"
+    , "PRIME32_5 | static/internal | U32 const"
+    , "PRIME64_1 | static/internal | U64 const"
+    , "PRIME64_2 | static/internal | U64 const"
+    , "PRIME64_3 | static/internal | U64 const"
+    , "PRIME64_4 | static/internal | U64 const"
+    , "PRIME64_5 | static/internal | U64 const"
+    ]
+)
+( "FileLock.c.thr_debug_o_i"
+,
+    [ "file_lock_mutex | static/internal | Mutex"
+    , "obj_hash | static/internal | HashTable *"
+    , "key_hash | static/internal | HashTable *"
+    ]
+)
+( "StablePtr.c.thr_debug_o_i"
+,
+    [ "stable_ptr_table | static/external | spEntry *"
+    , "stable_ptr_mutex | static/external | Mutex"
+    , "stable_ptr_free | static/internal | spEntry *"
+    , "n_old_SPTs | static/internal | uint32_t"
+    , "SPT_size | static/internal | unsigned int"
+    , "old_SPTs | static/internal | spEntry * [64]"
+    ]
+)
+( "GCUtils.c.thr_debug_o_i"
+, [ "gc_alloc_block_sync | static/external | SpinLock" ]
+)
+( "NonMovingMark.c.thr_debug_o_i"
+,
+    [ "upd_rem_set_block_list | static/external | bdescr *"
+    , "n_nonmoving_marked_large_blocks | static/external | memcount"
+    , "n_nonmoving_compact_blocks | static/external | memcount"
+    , "upd_rem_set_flush_count | static/internal | StgWord volatile"
+    , "nonmoving_large_objects | static/external | bdescr *"
+    , "nonmoving_compact_objects | static/external | bdescr *"
+    , "upd_rem_set_lock | static/internal | Mutex"
+    , "nonmoving_old_weak_ptr_list | static/external | StgWeak *"
+    , "n_nonmoving_large_blocks | static/external | memcount"
+    , "nonmoving_old_threads | static/external | StgTSO *"
+    , "nonmoving_weak_ptr_list | static/external | StgWeak *"
+    , "current_mark_queue | static/external | MarkQueue *"
+    , "debug_caf_list_snapshot | static/external | StgIndStatic *"
+    , "nonmoving_threads | static/external | StgTSO *"
+    , "n_nonmoving_marked_compact_blocks | static/external | memcount"
+    , "nonmoving_large_objects_mutex | static/internal | Mutex"
+    , "upd_rem_set_flushed_cond | static/internal | Condition"
+    , "nonmoving_marked_compact_objects | static/external | bdescr *"
+    , "nonmoving_write_barrier_enabled | static/external | StgWord"
+    , "nonmoving_marked_large_objects | static/external | bdescr *"
+    ]
+)
+( "NonMoving.c.thr_debug_o_i"
+,
+    [ "sync_phase_marking_budget | static/external | MarkBudget"
+    , "concurrent_coll_running | static/external | _Bool"
+    , "nonmoving_collection_mutex | static/external | Mutex"
+    , "nonmoving_live_words | static/external | memcount"
+    , "nonmovingHeap | static/external | struct NonmovingHeap"
+    , "nonmovingMarkEpoch | static/external | uint8_t"
+    , "concurrent_coll_finished_lock | static/external | Mutex"
+    , "concurrent_coll_finished | static/external | Condition"
+    , "mark_thread | static/external | OSThreadId"
+    ]
+)
+( "Storage.c.thr_debug_o_i"
+,
+    [ "g0 | static/external | generation *"
+    , "revertible_caf_list | static/external | StgIndStatic *"
+    , "highMemDynamic | static/external | _Bool"
+    , "dyn_caf_list | static/external | StgIndStatic *"
+    , "large_alloc_lim | static/external | W_"
+    , "debug_caf_list | static/external | StgIndStatic *"
+    , "oldest_gen | static/external | generation *"
+    , "generations | static/external | generation *"
+    , "exec_block | static/external | bdescr *"
+    , "nurseries | static/external | nursery *"
+    , "next_nursery | static/external | StgWord volatile [16]"
+    , "keepCAFs | static/external | _Bool"
+    , "sm_mutex | static/external | Mutex"
+    , "n_nurseries | static/external | uint32_t"
+    ]
+)
+( "Compact.c.thr_debug_o_i"
+, [ "nfdata_chain | static/internal | StgCompactNFData *" ]
+)
+( "GC.c.thr_debug_o_i"
+,
+    [ "N | static/external | uint32_t"
+    , "copied | static/internal | long"
+    , "mark_sp | static/external | StgPtr"
+    , "waitForGcThreads_yield | static/external | StgWord64 volatile"
+    , "waitForGcThreads_spin | static/external | StgWord64 volatile"
+    , "gc_exit_arrived_cv | static/internal | Condition"
+    , "gc_entry_start_now_cv | static/internal | Condition"
+    , "n_gc_idle_threads | static/internal | uint32_t"
+    , "prev_static_flag | static/external | uint32_t"
+    , "unload_mark_needed | static/external | _Bool"
+    , "gc_exit_leave_now_cv | static/internal | Condition"
+    , "deadlock_detect_gc | static/external | _Bool"
+    , "mark_stack_top_bd | static/external | bdescr *"
+    , "mutlist_scav_stats | static/external | MutListScavStats"
+    , "gc_exit_mutex | static/internal | Mutex"
+    , "whitehole_gc_spin | static/external | StgWord64 volatile"
+    , "mark_stack_bd | static/external | bdescr *"
+    , "gc_running_threads | static/internal | StgWord"
+    , "gc_entry_arrived_cv | static/internal | Condition"
+    , "n_gc_entered | static/internal | StgInt"
+    , "consec_idle_gcs | static/internal | int"
+    , "gc_running_cv | static/internal | Condition"
+    , "work_stealing | static/external | _Bool"
+    , "gc_running_mutex | static/internal | Mutex"
+    , "g0_pcnt_kept | static/internal | W_"
+    , "n_gc_threads | static/external | uint32_t"
+    , "n_gc_exited | static/internal | StgInt"
+    , "major_gc | static/external | _Bool"
+    , "gc_entry_mutex | static/internal | Mutex"
+    , "gc_threads | static/external | gc_thread * *"
+    , "static_flag | static/external | uint32_t"
+    ]
+)
+( "MBlock.c.thr_debug_o_i"
+,
+    [ "mblock_address_space | static/external | struct mblock_address_range"
+    , "mblock_high_watermark | static/internal | W_"
+    , "mblocks_allocated | static/external | W_"
+    , "peak_mblocks_allocated | static/external | W_"
+    , "free_list_head | static/internal | free_list *"
+    , "mpc_misses | static/external | W_"
+    ]
+)
+( "MarkWeak.c.thr_debug_o_i"
+, [ "weak_stage | static/internal | WeakStage" ]
+)
+( "BlockAlloc.c.thr_debug_o_i"
+,
+    [ "n_alloc_blocks_by_node | static/external | W_ [16]"
+    , "free_mblock_list | static/internal | bdescr * [16]"
+    , "n_alloc_blocks | static/external | W_"
+    , "hw_alloc_blocks | static/external | W_"
+    , "free_list | static/internal | bdescr * [16][20 - 12]"
+    ]
+)
+( "ProfHeap.c.thr_debug_o_i"
+,
+    [ "era | static/external | unsigned int"
+    , "max_era | static/internal | uint32_t"
+    , "hp_file | static/external | FILE *"
+    , "saved_locale | static/internal | locale_t"
+    , "prof_locale | static/internal | locale_t"
+    , "hp_filename | static/internal | char *"
+    , "n_censuses | static/internal | uint32_t"
+    , "censuses | static/internal | Census *"
+    ]
+)
+( "Arena.c.thr_debug_o_i"
+, [ "arena_blocks | static/internal | long" ]
+)
+( "Hpc.c.thr_debug_o_i"
+,
+    [ "tixFile | static/internal | FILE *"
+    , "tix_ch | static/internal | int"
+    , "hpc_pid | static/internal | pid_t"
+    , "modules | static/external | HpcModuleInfo *"
+    , "tixFilename | static/internal | char *"
+    , "hpc_inited | static/internal | int"
+    , "moduleHash | static/internal | StrHashTable *"
+    ]
+)
+( "Interpreter.c.thr_debug_o_i"
+,
+    [ "rts_breakpoint_io_action | static/external | HsStablePtr"
+    , "rts_stop_on_exception | static/external | int"
+    , "rts_stop_next_breakpoint | static/external | int"
+    , "app_ptrs_itbl | static/internal | StgWord []"
+    ]
+)
+( "RtsSymbols.c.thr_debug_o_i"
+, [ "rtsSyms | static/external | RtsSymbolVal []" ]
+)
+( "Printer.c.thr_debug_o_i"
+,
+    [ "add_to_fname_table | static/internal | HashTable *"
+    , "closure_type_names | static/external | const char * []"
+    , "searched | static/external | int"
+    , "what_next_strs | static/external | const char * []"
+    ]
+)
+( "Trace.c.thr_debug_o_i"
+,
+    [ "TRACE_spark_full | static/external | int"
+    , "TRACE_spark_sampled | static/external | int"
+    , "TRACE_nonmoving_gc | static/external | int"
+    , "TRACE_cap | static/external | int"
+    , "TRACE_gc | static/external | int"
+    , "TRACE_sched | static/external | int"
+    , "thread_stop_reasons | static/internal | char * []"
+    , "TRACE_user | static/external | int"
+    , "trace_utx | static/internal | Mutex"
+    ]
+)
+( "Ticky.c.thr_debug_o_i"
+,
+    [ "UPDF_OMITTED_ctr | static/external | StgInt"
+    , "CATCHF_PUSHED_ctr | static/external | StgInt"
+    , "ALLOC_SE_THK_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_ppp_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_ppv_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_ppppp_ctr | static/external | StgInt"
+    , "SLOW_CALL_PAP_TOO_MANY_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_pppppp_ctr | static/external | StgInt"
+    , "KNOWN_CALL_EXTRA_ARGS_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_d_ctr | static/external | StgInt"
+    , "ALLOC_UP_THK_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_f_ctr | static/external | StgInt"
+    , "top_ct | static/external | StgEntCounter"
+    , "SLOW_CALL_fast_v16_ctr | static/external | StgInt"
+    , "ENT_STATIC_IND_ctr | static/external | StgInt"
+    , "ENT_PERM_IND_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_l_ctr | static/external | StgInt"
+    , "GC_SEL_MAJOR_ctr | static/external | StgInt"
+    , "GC_SEL_MINOR_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_n_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_p_ctr | static/external | StgInt"
+    , "ENT_DYN_THK_MANY_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_pp_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_pv_ctr | static/external | StgInt"
+    , "SLOW_CALL_PAP_CORRECT_ctr | static/external | StgInt"
+    , "UNKNOWN_CALL_ctr | static/external | StgInt"
+    , "SLOW_CALL_FUN_TOO_MANY_ctr | static/external | StgInt"
+    , "RET_UNBOXED_TUP_ctr | static/external | StgInt"
+    , "RET_UNBOXED_TUP_hst | static/external | StgInt [9]"
+    , "SLOW_CALL_fast_v_ctr | static/external | StgInt"
+    , "SLOW_CALL_PAP_TOO_FEW_ctr | static/external | StgInt"
+    , "UPD_CON_IN_NEW_ctr | static/external | StgInt"
+    , "UPD_PAP_IN_NEW_ctr | static/external | StgInt"
+    , "ENT_AP_STACK_ctr | static/external | StgInt"
+    , "ALLOC_PAP_adm | static/external | StgInt"
+    , "ALLOC_PAP_gds | static/external | StgInt"
+    , "ENT_VIA_NODE_ctr | static/external | StgInt"
+    , "ENT_STATIC_FUN_DIRECT_ctr | static/external | StgInt"
+    , "ALLOC_HEAP_ctr | static/external | StgInt"
+    , "UPDF_PUSHED_ctr | static/external | StgInt"
+    , "KNOWN_CALL_ctr | static/external | StgInt"
+    , "ALLOC_THK_adm | static/external | StgInt"
+    , "ALLOC_THK_gds | static/external | StgInt"
+    , "ALLOC_PAP_slp | static/external | StgInt"
+    , "SLOW_CALL_FUN_CORRECT_ctr | static/external | StgInt"
+    , "SLOW_CALL_FUN_TOO_FEW_ctr | static/external | StgInt"
+    , "ALLOC_CON_adm | static/external | StgInt"
+    , "ALLOC_CON_gds | static/external | StgInt"
+    , "ALLOC_PRIM_adm | static/external | StgInt"
+    , "ALLOC_THK_slp | static/external | StgInt"
+    , "ALLOC_BH_adm | static/external | StgInt"
+    , "ALLOC_PRIM_ctr | static/external | StgInt"
+    , "ALLOC_PAP_ctr | static/external | StgInt"
+    , "ALLOC_TSO_adm | static/external | StgInt"
+    , "ALLOC_TSO_gds | static/external | StgInt"
+    , "ALLOC_BH_slp | static/external | StgInt"
+    , "ALLOC_FUN_adm | static/external | StgInt"
+    , "ALLOC_HEAP_tot | static/external | StgInt"
+    , "ALLOC_FUN_gds | static/external | StgInt"
+    , "ALLOC_PRIM_gds | static/external | StgInt"
+    , "ALLOC_TUP_adm | static/external | StgInt"
+    , "ALLOC_TUP_gds | static/external | StgInt"
+    , "ALLOC_BH_ctr | static/external | StgInt"
+    , "UPDF_RCC_OMITTED_ctr | static/external | StgInt"
+    , "ALLOC_BH_gds | static/external | StgInt"
+    , "ALLOC_CON_slp | static/external | StgInt"
+    , "UPD_CAF_BH_SINGLE_ENTRY_ctr | static/external | StgInt"
+    , "HEAP_CHK_ctr | static/external | StgInt"
+    , "ALLOC_TSO_slp | static/external | StgInt"
+    , "GC_SEL_ABANDONED_ctr | static/external | StgInt"
+    , "ALLOC_FUN_slp | static/external | StgInt"
+    , "ALLOC_TUP_slp | static/external | StgInt"
+    , "ticky_slow_call_unevald | static/external | StgInt"
+    , "ALLOC_CON_ctr | static/external | StgInt"
+    , "GC_FAILED_PROMOTION_ctr | static/external | StgInt"
+    , "ALLOC_RTS_tot | static/external | StgInt"
+    , "MULTI_CHUNK_SLOW_CALL_ctr | static/external | StgInt"
+    , "ALLOC_PRIM_slp | static/external | StgInt"
+    , "ALLOC_TSO_ctr | static/external | StgInt"
+    , "SLOW_CALL_ctr | static/external | StgInt"
+    , "ALLOC_RTS_ctr | static/external | StgInt"
+    , "ALLOC_FUN_ctr | static/external | StgInt"
+    , "ALLOC_TUP_ctr | static/external | StgInt"
+    , "ENT_STATIC_THK_SINGLE_ctr | static/external | StgInt"
+    , "UPD_OLD_IND_ctr | static/external | StgInt"
+    , "UPD_NEW_IND_ctr | static/external | StgInt"
+    , "ENT_DYN_IND_ctr | static/external | StgInt"
+    , "ENT_DYN_CON_ctr | static/external | StgInt"
+    , "UPD_CAF_BH_UPDATABLE_ctr | static/external | StgInt"
+    , "ticky_entry_ctrs | static/external | StgEntCounter *"
+    , "MULTI_CHUNK_SLOW_CALL_CHUNKS_ctr | static/external | StgInt"
+    , "SLOW_CALL_UNEVALD_ctr | static/external | StgInt"
+    , "ENT_STATIC_THK_MANY_ctr | static/external | StgInt"
+    , "UPDF_RCC_PUSHED_ctr | static/external | StgInt"
+    , "STK_CHK_ctr | static/external | StgInt"
+    , "RET_OLD_ctr | static/external | StgInt"
+    , "ENT_LNE_ctr | static/external | StgInt"
+    , "RET_OLD_hst | static/external | StgInt [9]"
+    , "ENT_PAP_ctr | static/external | StgInt"
+    , "RET_NEW_ctr | static/external | StgInt"
+    , "RET_NEW_hst | static/external | StgInt [9]"
+    , "UPD_BH_UPDATABLE_ctr | static/external | StgInt"
+    , "ENT_BH_ctr | static/external | StgInt"
+    , "ENT_AP_ctr | static/external | StgInt"
+    , "UPD_OLD_PERM_IND_ctr | static/external | StgInt"
+    , "UPD_NEW_PERM_IND_ctr | static/external | StgInt"
+    , "ENT_DYN_FUN_DIRECT_ctr | static/external | StgInt"
+    , "UPD_CON_IN_PLACE_ctr | static/external | StgInt"
+    , "UPD_PAP_IN_PLACE_ctr | static/external | StgInt"
+    , "ENT_DYN_THK_SINGLE_ctr | static/external | StgInt"
+    , "VERY_SLOW_CALL_ctr | static/external | StgInt"
+    , "RET_SEMI_loads_avoided | static/external | StgInt"
+    , "KNOWN_CALL_TOO_FEW_ARGS_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_pppp_ctr | static/external | StgInt"
+    , "SLOW_CALL_fast_pppv_ctr | static/external | StgInt"
+    , "ENT_STATIC_CON_ctr | static/external | StgInt"
+    , "UPD_SQUEEZED_ctr | static/external | StgInt"
+    ]
+)
+( "Stats.c.thr_debug_o_i"
+,
+    [ "TAGGED_PTR_1 | static/external | StgInt"
+    , "TAGGED_PTR_2 | static/external | StgInt"
+    , "stats | static/internal | RTSStats"
+    , "RIGHT_ARITY_1 | static/external | StgInt"
+    , "RIGHT_ARITY_2 | static/external | StgInt"
+    , "start_nonmoving_gc_sync_elapsed | static/internal | Time"
+    , "TOTAL_CALLS | static/external | StgInt"
+    , "whitehole_executeMessage_spin | static/external | StgWord64 volatile"
+    , "start_nonmoving_gc_elapsed | static/internal | Time"
+    , "GC_coll_max_pause | static/internal | Time *"
+    , "whitehole_threadPaused_spin | static/external | StgWord64 volatile"
+    , "end_init_elapsed | static/internal | Time"
+    , "end_exit_elapsed | static/internal | Time"
+    , "whitehole_lockClosure_yield | static/external | StgWord64 volatile"
+    , "start_nonmoving_gc_cpu | static/internal | Time"
+    , "whitehole_lockClosure_spin | static/external | StgWord64 volatile"
+    , "start_exit_gc_elapsed | static/internal | Time"
+    , "GC_coll_elapsed | static/internal | Time *"
+    , "start_init_elapsed | static/internal | Time"
+    , "GC_end_faults | static/internal | W_"
+    , "start_exit_gc_cpu | static/internal | Time"
+    , "GC_coll_cpu | static/internal | Time *"
+    , "start_exit_elapsed | static/internal | Time"
+    , "start_init_cpu | static/internal | Time"
+    , "end_init_cpu | static/internal | Time"
+    , "end_exit_cpu | static/internal | Time"
+    , "start_exit_cpu | static/internal | Time"
+    , "SLOW_CALLS_1 | static/external | StgInt"
+    , "SLOW_CALLS_2 | static/external | StgInt"
+    , "stats_mutex | static/external | Mutex"
+    ]
+)
+( "RtsStartup.c.thr_debug_o_i"
+,
+    [ "exitFn | static/external | void (*)(int)"
+    , "hs_init_count | static/internal | int"
+    , "rts_shutdown | static/internal | _Bool"
+    ]
+)
+( "Threads.c.thr_debug_o_i"
+, [ "next_thread_id | static/internal | StgThreadID" ]
+)
+( "EventLogWriter.c.thr_debug_o_i"
+,
+    [ "FileEventLogWriter | static/external | EventLogWriter const"
+    , "NullEventLogWriter | static/external | EventLogWriter const"
+    , "event_log_file | static/internal | FILE *"
+    , "event_log_pid | static/internal | pid_t"
+    , "event_log_mutex | static/internal | Mutex"
+    ]
+)
+( "EventLog.c.thr_debug_o_i"
+,
+    [ "eventlog_header_funcs | static/internal | eventlog_init_func_t *"
+    , "eventlog_enabled | static/external | _Bool"
+    , "state_change_mutex | static/external | Mutex"
+    , "capEventBuf | static/external | EventsBuf *"
+    , "eventBufMutex | static/external | Mutex"
+    , "event_log_writer | static/internal | EventLogWriter const *"
+    , "eventBuf | static/external | EventsBuf"
+    , "eventTypes | static/external | EventType [213]"
+    , "EventDesc | static/external | char * []"
+    , "flushCount | static/internal | int"
+    ]
+)
+( "Linker.c.thr_debug_o_i"
+,
+    [ "symhash | static/external | StrHashTable *"
+    , "linker_init_done | static/internal | int"
+    , "dl_prog_handle | static/internal | void *"
+    , "mmap_32bit_base | static/internal | void *"
+    , "openedSOs | static/internal | OpenedSO *"
+    , "linker_mutex | static/external | Mutex"
+    , "re_invalid | static/internal | regex_t"
+    , "dl_mutex | static/external | Mutex"
+    , "re_realso | static/internal | regex_t"
+    ]
+)
+( "M32Alloc.c.thr_debug_o_i"
+,
+    [ "m32_free_page_pool_size | static/external | unsigned int"
+    , "m32_free_page_pool | static/external | struct m32_page_t *"
+    ]
+)
+( "IPE.c.thr_debug_o_i"
+, [ "IPE_LIST | static/external | InfoProvEnt *" ]
+)
+( "Task.c.thr_debug_o_i"
+,
+    [ "my_task | static/external , __thread | Task *"
+    , "currentWorkerCount | static/external | uint32_t"
+    , "tasksInitialized | static/internal | int"
+    , "all_tasks_mutex | static/external | Mutex"
+    , "peakWorkerCount | static/external | uint32_t"
+    , "all_tasks | static/external | Task *"
+    , "taskCount | static/external | uint32_t"
+    , "workerCount | static/external | uint32_t"
+    ]
+)
+( "Globals.c.thr_debug_o_i"
+,
+    [ "store | static/internal | StgStablePtr [MaxStoreKey]"
+    , "globalStoreLock | static/external | Mutex"
+    ]
+)
+( "Schedule.c.thr_debug_o_i"
+,
+    [ "allocated_bytes_at_heapoverflow | static/external | uint64_t"
+    , "sync_finished_cond | static/internal | Condition"
+    , "sync_finished_mutex | static/internal | Mutex"
+    , "recent_activity | static/external | StgWord volatile"
+    , "heap_overflow | static/external | _Bool"
+    , "sched_state | static/external | StgWord volatile"
+    , "sched_mutex | static/external | Mutex"
+    ]
+)
+( "TopHandler.c.thr_debug_o_i"
+,
+    [ "m | static/internal | Mutex"
+    , "topHandlerPtr | static/internal | StgStablePtr"
+    ]
+)
+( "Timer.c.thr_debug_o_i"
+,
+    [ "inter_gc_ticks_to_gc | static/internal | int"
+    , "ticks_to_eventlog_flush | static/internal | int"
+    , "idle_ticks_to_gc | static/internal | int"
+    , "ticks_to_ctxt_switch | static/internal | int"
+    , "timer_disabled | static/internal | StgWord"
+    ]
+)
+( "Weak.c.thr_debug_o_i"
+,
+    [ "finalizer_chunk | static/internal | int32_t const"
+    , "finalizer_list | static/internal | StgWeak *"
+    , "finalizer_lock | static/internal | StgWord volatile"
+    , "n_finalizers | static/internal | uint32_t"
+    ]
+)
+( "CheckUnload.c.thr_debug_o_i"
+,
+    [ "objects | static/external | ObjectCode *"
+    , "object_code_mark_bit | static/external | uint8_t"
+    , "n_unloaded_objects | static/external | int"
+    , "global_s_indices | static/internal | OCSectionIndices *"
+    , "loaded_objects | static/external | ObjectCode *"
+    , "old_objects | static/internal | ObjectCode *"
+    ]
+)
+( "ClosureFlags.c.thr_debug_o_i"
+, [ "closure_flags | static/external | StgWord16 []" ]
+)
+( "RtsAPI.c.thr_debug_o_i"
+, [ "rts_pausing_task | static/external | Task *" ]
+)
+( "Capability.c.thr_debug_o_i"
+,
+    [ "enabled_capabilities | static/external | uint32_t"
+    , "last_free_capability | static/internal | Capability * [16]"
+    , "pending_sync | static/external | PendingSync * volatile"
+    , "n_capabilities | static/external | uint32_t"
+    , "MainCapability | static/external | Capability"
+    , "capabilities | static/external | Capability * *"
+    , "numa_map | static/external | uint32_t [16]"
+    , "n_numa_nodes | static/external | uint32_t"
+    ]
+)
+( "RtsFlags.c.thr_debug_o_i"
+,
+    [ "defaultRtsConfig | static/external | RtsConfig const"
+    , "rtsConfig | static/external | RtsConfig"
+    , "RtsFlags | static/external | RTS_FLAGS"
+    , "rts_argc | static/external | int"
+    , "usage_text | static/internal | const char * []"
+    , "full_prog_argc | static/external | int"
+    , "full_prog_argv | static/external | char * *"
+    , "prog_argc | static/external | int"
+    , "prog_argv | static/external | char * *"
+    , "rts_argv_size | static/external | int"
+    , "prog_name | static/external | char *"
+    , "rts_argv | static/external | char * *"
+    ]
+)
+( "StableName.c.thr_debug_o_i"
+,
+    [ "stable_name_free | static/internal | snEntry *"
+    , "stable_name_mutex | static/external | Mutex"
+    , "stable_name_table | static/external | snEntry *"
+    , "addrToStableHash | static/internal | HashTable *"
+    , "SNT_size | static/external | unsigned int"
+    ]
+)
+( "OSMem.c.thr_debug_o_i"
+, [ "next_request | static/internal | void *" ]
+)
+( "OSThreads.c.thr_debug_o_i"
+, [ "nproc_cache | static/internal | uint32_t" ]
+)
+( "Signals.c.thr_debug_o_i"
+,
+    [ "timer_manager_control_wr_fd | static/internal | int"
+    , "n_haskell_handlers | static/internal | uint32_t"
+    , "io_manager_wakeup_fd | static/internal | int"
+    , "savedSignals | static/internal | sigset_t"
+    , "signal_handlers | static/external | StgInt *"
+    , "sig_mutex | static/internal | Mutex"
+    , "nocldstop | static/external | HsInt"
+    , "nHandlers | static/internal | StgInt"
+    , "userSignals | static/internal | sigset_t"
+    ]
+)
+( "Itimer.c.thr_debug_o_i"
+,
+    [ "thread | static/internal | OSThreadId"
+    , "mutex | static/internal | Mutex"
+    , "timerfd | static/internal | int"
+    , "stopped | static/internal | _Bool"
+    , "exited | static/internal | _Bool"
+    , "itimer_interval | static/internal | Time"
+    , "start_cond | static/internal | Condition"
+    ]
+)
+( "TTY.c.thr_debug_o_i"
+, [ "saved_termios | static/internal | void * [3]" ]
+)
+( "STM.c.thr_debug_o_i"
+,
+    [ "config_use_read_phase | static/internal | StgBool const"
+    , "token_locked | static/internal | StgWord volatile"
+    , "max_commits | static/internal | StgInt64 volatile"
+    ]
+)
+( "ForeignExports.c.thr_debug_o_i"
+,
+    [ "pending | static/internal | struct ForeignExportsList *"
+    , "loading_obj | static/internal | ObjectCode *"
+    ]
+)
+( "ThreadLabels.c.thr_debug_o_i"
+,
+    [ "threadLabels_mutex | static/internal | Mutex"
+    , "threadLabels | static/internal | HashTable *"
+    ]
+)
+( "RtsMessages.c.thr_debug_o_i"
+,
+    [ "sysErrorMsgFn | static/external | RtsMsgFunction *"
+    , "fatalInternalErrorFn | static/external | RtsMsgFunction *"
+    , "errorMsgFn | static/external | RtsMsgFunction *"
+    , "debugMsgFn | static/external | RtsMsgFunctionRetLen *"
+    ]
+)
+( "global variable"
+, VarName
+    ( Ident "capabilities" 401660601
+        ( NodeInfo
+            ( "rts/Capability.c": line 48 )
+            (
+                ( "rts/Capability.c": line 48 )
+            , 12
+            )
+            ( Name
+                { nameId = 49971 }
+            )
+        )
+    ) Nothing
+)

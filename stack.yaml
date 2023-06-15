@@ -1,0 +1,8 @@
+resolver: lts-20.24
+
+packages:
+  - .
+
+extra-deps:
+  - github: csabahruska/language-c
+    commit: fdac9b12ffaccd31be66140c2de6d07ca4347daf
